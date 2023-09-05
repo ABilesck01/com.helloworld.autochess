@@ -10,7 +10,9 @@ public class GameController : MonoBehaviour
     [Space]
     [SerializeField] private GameView gameView;
     [Space]
+    [Header("Game stats")]
     [SerializeField] private int maxRounds = 3;
+    [SerializeField] private int moneyPerRound = 5;
 
     private int redTeamPoints = 0;
     private int blueTeamPoints = 0;
@@ -38,6 +40,12 @@ public class GameController : MonoBehaviour
         botController.Play();
     }
 
+    private void Start()
+    {
+        playerController.AddMoney(moneyPerRound);
+        botController.AddMoney(moneyPerRound);
+    }
+
     private void BaseController_OnAllUnitsDeath(object sender, BaseController.TeamTag e)
     {
         BaseController.TeamTag winner;
@@ -55,11 +63,19 @@ public class GameController : MonoBehaviour
         }
 
         completedRoundCount++;
+
+        gameView.UpdateScore(blueTeamPoints, redTeamPoints);
+
         if(completedRoundCount >= maxRounds) 
         {
             OnFinishGame?.Invoke(this, winner);
             return;
         }
+
+        int money = moneyPerRound + (moneyPerRound * completedRoundCount);
+
+        playerController.AddMoney(money);
+        botController.AddMoney(money);
 
         OnNextRound?.Invoke(this, winner);
         botController.Respawn();

@@ -8,6 +8,8 @@ public class BaseUnit : MonoBehaviour
 {
     [SerializeField] protected UnitData unitData;
 
+    [SerializeField] protected SpriteRenderer teamViewer;
+
     [SerializeField] private BaseController controller;
 
     public bool canAttack = false;
@@ -28,6 +30,10 @@ public class BaseUnit : MonoBehaviour
     public void SetTeam(BaseController.TeamTag team)
     {
         gameObject.tag = team.ToString();
+        if (team.Equals(BaseController.TeamTag.redTeam))
+            teamViewer.color = Color.red;
+        else
+            teamViewer.color = Color.blue;
     }
 
     protected void GetEnemies()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -16,6 +17,8 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private CharacterView characterView;
     [SerializeField] private TextMeshProUGUI txtMoney;
     [SerializeField] private Button btnPlay;
+    [Space]
+    [SerializeField] private GameObject hidable;
 
     private PlayerController playerController;
 
@@ -24,6 +27,7 @@ public class PlayerView : MonoBehaviour
         btnPlay.onClick.AddListener(() =>
         {
             playerController.PlayGame();
+            hidable.SetActive(false);
         });
     }
 
@@ -44,8 +48,33 @@ public class PlayerView : MonoBehaviour
             var item = Instantiate(characterView.viewItemTemplate, characterView.container);
             item.FillData(d.characterName, d.cost.ToString(), () =>
             {
+                if(!playerController.CheckMoney(d.cost))
+                {
+                    Debug.Log("Dont have money!");
+                    return;
+                }
                 playerController.SetCharacterToBuild(d);
             });
         }
+    }
+
+    private void OnEnable()
+    {
+        GameController.OnNextRound += GameController_OnNextRound;
+    }
+
+    private void OnDisable()
+    {
+        GameController.OnNextRound -= GameController_OnNextRound;
+    }
+
+    private void GameController_OnNextRound(object sender, BaseController.TeamTag e)
+    {
+        hidable.SetActive(true);
+    }
+
+    internal void UpdateMoney(int currentMoney)
+    {
+        txtMoney.text = currentMoney.ToString();
     }
 }

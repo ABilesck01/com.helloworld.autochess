@@ -49,6 +49,8 @@ public class MeleeInfantaryUnit : BaseUnit
 
     private void Animation()
     {
+        if (isDead) return;
+
         animator.SetFloat("speed", agent.velocity.magnitude);
     }
 
@@ -62,6 +64,8 @@ public class MeleeInfantaryUnit : BaseUnit
 
         if (hasAttacked) return;
 
+        if (isDead) return;
+
         hasAttacked = true;
         animator.SetTrigger("attack");
         Invoke(nameof(ResetAttack), unitData.timeBtwAttacks);
@@ -69,12 +73,16 @@ public class MeleeInfantaryUnit : BaseUnit
 
     private void ResetAttack()
     {
+        if (isDead) return;
+
         hasAttacked = false;
     }
 
     public void AttackEvent()
     {
         if (target == null) return;
+
+        if (isDead) return;
 
         target.TakeDamage(unitData.damage, () =>
         {

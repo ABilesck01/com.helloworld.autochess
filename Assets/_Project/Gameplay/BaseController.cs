@@ -31,6 +31,8 @@ public class BaseController : MonoBehaviour
 
     public static event EventHandler<TeamTag> OnAllUnitsDeath;
 
+    protected int currentMoney;
+
     private void OnEnable()
     {
         GameController.OnNextRound += GameController_OnNextRound;
@@ -79,5 +81,22 @@ public class BaseController : MonoBehaviour
 
         OnAllUnitsDeath?.Invoke(this, teamTag);
         return;
+    }
+
+    public virtual void AddMoney(int amount)
+    {
+        currentMoney += amount;
+    }
+
+    public virtual bool CheckMoney(int amount)
+    {
+        return currentMoney >= amount;
+    }
+
+    public virtual void SpendMoney(int amount)
+    {
+        if(!CheckMoney(amount)) return;
+
+        currentMoney -= amount;
     }
 }

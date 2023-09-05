@@ -125,8 +125,8 @@ public class GridBuilder : MonoBehaviour
             controller.AddUnit(built);
             built.SetController(controller);
             Debug.Log(gridObject.ToString());
+            controller.SpendMoney(placedCharacter.cost);
             placedCharacter = null;
-
         }
     }
 

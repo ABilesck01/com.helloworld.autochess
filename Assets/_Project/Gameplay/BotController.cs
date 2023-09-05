@@ -26,11 +26,27 @@ public class BotController : BaseController
 
     private void SpawnRandomCharacters()
     {
-        int rand = UnityEngine.Random.Range(minMaxUnitsCount.x, minMaxUnitsCount.y);
-        for (int i = 0; i < rand; i++)
+        //int rand = UnityEngine.Random.Range(minMaxUnitsCount.x, minMaxUnitsCount.y);
+
+        //for (int i = 0; i < rand; i++)
+        //{
+        //    gridBuilder.PlaceCharacterInRandomPosition(GetRandomCharacter());
+        //}
+
+        do
         {
-            gridBuilder.PlaceCharacterInRandomPosition(GetRandomCharacter());
+            var rand = GetRandomCharacter();
+            
+            while(!CheckMoney(rand.cost))
+            {
+                rand = GetRandomCharacter();
+            }
+
+            SpendMoney(rand.cost);
+            gridBuilder.PlaceCharacterInRandomPosition(rand);
+    
         }
+        while(currentMoney > 0);
     }
 
     private void ShowUnits()

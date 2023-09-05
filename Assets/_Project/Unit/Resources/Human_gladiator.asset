@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2620b74c410c23944bede8481a8006fd, type: 3}
   m_Name: Human_gladiator
   m_EditorClassIdentifier: 
-  health: 3
-  damage: 1
+  health: 2
+  damage: 2
   timeBtwAttacks: 1
   speed: 4
   stopDistance: 3.5

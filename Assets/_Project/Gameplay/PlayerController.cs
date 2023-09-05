@@ -32,4 +32,18 @@ public class PlayerController : BaseController
         OnPlayerReady?.Invoke(this, EventArgs.Empty);
         ReadyUnits();
     }
+
+    public override void AddMoney(int amount)
+    {
+        base.AddMoney(amount);
+
+        playerView.UpdateMoney(currentMoney);
+    }
+
+    public override void SpendMoney(int amount)
+    {
+        base.SpendMoney(amount);
+
+        playerView.UpdateMoney(currentMoney);
+    }
 }

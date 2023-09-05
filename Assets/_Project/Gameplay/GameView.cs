@@ -17,6 +17,9 @@ public class GameView : MonoBehaviour
     [Space]
     [SerializeField] private Color32 blueTeamColor;
     [SerializeField] private Color32 redTeamColor;
+    [Space]
+    [SerializeField] private TextMeshProUGUI blueTeamPoints;
+    [SerializeField] private TextMeshProUGUI redTeamPoints;
 
     private void Awake()
     {
@@ -72,5 +75,11 @@ public class GameView : MonoBehaviour
         }
 
         endRoundScreen.SetActive(true);
+    }
+
+    public void UpdateScore(int blue, int red)
+    {
+        blueTeamPoints.text = blue.ToString();
+        redTeamPoints.text = red.ToString();
     }
 }
