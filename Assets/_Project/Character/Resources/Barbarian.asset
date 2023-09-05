@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1f2f9bb87a058a4a8a1fd3324da025b, type: 3}
+  m_Name: Barbarian
+  m_EditorClassIdentifier: 
+  characterName: Barbarian
+  cost: 2
+  width: 1
+  height: 1
+  placedCharacter: {fileID: 5830915060970842769, guid: 09d99c1321978f343b371fce62a89edb, type: 3}
