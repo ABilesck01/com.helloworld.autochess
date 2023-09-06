@@ -94,7 +94,7 @@ public class GridBuilder : MonoBehaviour
     private void Update()
     {
         PlaceCharacter();
-        DestroyCharacter();
+        //DestroyCharacter();
     }
 
     public void SetController(BaseController controller)

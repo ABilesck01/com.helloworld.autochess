@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2620b74c410c23944bede8481a8006fd, type: 3}
   m_Name: shieldMaiden
   m_EditorClassIdentifier: 
-  health: 1
+  health: 2
   damage: 3
   timeBtwAttacks: 0.7
-  speed: 6
+  speed: 5
   stopDistance: 4.5
+  avoidAttack: 0.15

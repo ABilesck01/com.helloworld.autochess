@@ -90,6 +90,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: shield maiden Unit
       objectReference: {fileID: 0}
+    - target: {fileID: 9098146901065722159, guid: 6fd66229bce518d41866f5f1c4ecf1ed, type: 3}
+      propertyPath: unitData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b2a0809e6346d94dbe6cd08ac969263, type: 2}
     - target: {fileID: 9174183387944511825, guid: 6fd66229bce518d41866f5f1c4ecf1ed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5

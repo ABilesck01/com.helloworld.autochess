@@ -52,14 +52,13 @@ public class GameController : MonoBehaviour
 
         if (e.Equals(BaseController.TeamTag.redTeam))
         {
-            winner = BaseController.TeamTag.redTeam;
-            redTeamPoints++;
-
+            winner = BaseController.TeamTag.blueTeam;
+            blueTeamPoints++;
         }
         else
         {
-            winner = BaseController.TeamTag.blueTeam;
-            blueTeamPoints++;
+            winner = BaseController.TeamTag.redTeam;
+            redTeamPoints++;
         }
 
         completedRoundCount++;

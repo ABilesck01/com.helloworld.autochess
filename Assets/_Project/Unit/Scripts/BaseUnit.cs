@@ -58,6 +58,13 @@ public class BaseUnit : MonoBehaviour
             return;
         }
 
+        var rand = UnityEngine.Random.value;
+
+        if(rand > unitData.avoidAttack)
+        {
+            return;
+        }
+
         currentHealth -= amount;
         if(currentHealth <= 0)
         {

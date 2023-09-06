@@ -10,4 +10,5 @@ public class UnitData : ScriptableObject
     public float timeBtwAttacks;
     public float speed;
     public float stopDistance;
+    [Range(0,1)]public float avoidAttack;
 }
