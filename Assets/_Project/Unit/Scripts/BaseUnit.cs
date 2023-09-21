@@ -60,10 +60,10 @@ public class BaseUnit : MonoBehaviour
 
         var rand = UnityEngine.Random.value;
 
-        if(rand > unitData.avoidAttack)
-        {
-            return;
-        }
+        //if(rand > unitData.avoidAttack)
+        //{
+        //    return;
+        //}
 
         currentHealth -= amount;
         if(currentHealth <= 0)

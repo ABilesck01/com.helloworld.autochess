@@ -17,4 +17,4 @@ MonoBehaviour:
   timeBtwAttacks: 0.7
   speed: 5
   stopDistance: 4.5
-  avoidAttack: 0.15
+  avoidAttack: 0
